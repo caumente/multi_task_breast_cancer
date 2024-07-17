@@ -3,6 +3,7 @@
 ## Overview
 This project presents a novel multi-task framework designed to enhance the accuracy and efficiency of breast cancer diagnosis using ultrasound imaging. Unlike traditional methods that treat segmentation and classification as separate tasks, our approach simultaneously addresses both, leveraging the inherent interdependence between these tasks to improve overall performance. This integrated framework aims to provide more reliable and comprehensive diagnostic tools for clinicians, thereby potentially improving patient outcomes.
 
+![Example Image](./output/images/MT_framework.png)
 
 ## Key Features
 
@@ -20,6 +21,7 @@ This project presents a novel multi-task framework designed to enhance the accur
 - Comprehensive analysis and curation of the BUSI dataset ensure minimized biases and more reliable outcomes.
 - The methodology showcases better generalization capabilities, crucial for clinical applications in breast cancer detection.
 
+![Example Image](./output/images/qualitative_results_segmentation.png)
 
 ## How to Use
 
