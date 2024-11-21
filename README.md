@@ -30,6 +30,10 @@ Identified 330 duplicated cases were removed to avoid bias training or testing p
 
 ![triplet](./output/images/triplet.png)
 
+<p align="center">
+   <img src="https://github.com/caumente/multi_task_breast_cancer/blob/main/output/images/triplet.png" width="400">
+</p>
+
 Curated BUSI:
 
 After removing duplicates and inconsistent annotations, the Curated BUSI dataset contains 450 images: 64 normal 
@@ -63,18 +67,8 @@ The ablation study for the proposed prediction-refining multi-task framework eva
 revealed significant improvements across segmentation and classification tasks compared to various baseline configurations.
 
 
-| Segmentation Classification     |     DSC Benign     |   DSC Malignant    |    DSC Normal     |   DSC Average    |    F1 Benign     |  F1 Malignant    |   F1 Normal      |  F1 Weighted     |      ACC         |
-|---------------------------------|:------------------:|:------------------:|:-----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|
-| ST (Seg)                        |   0.793 ± 0.024    |  0.720 ± 0.084     |   0.000 ± 0.000   |  0.653 ± 0.019   |        -         |         -         |        -          |         -         |         -        |
-| ST (Seg) + DO                   |   0.773 ± 0.047    |  0.698 ± 0.070     |   0.594 ± 0.194   |  0.720 ± 0.031   |        -         |         -         |        -          |         -         |         -        |
-| ST (Cls)                        |    -               |         -           |         -         |         -         |  0.740 ± 0.025   |  0.665 ± 0.052   |  0.276 ± 0.271   |  0.647 ± 0.060   |  0.680 ± 0.043   |
-| ST (Cls) + DO                   |         -          |         -           |         -         |         -         |  0.742 ± 0.027   |  0.721 ± 0.035   |  0.618 ± 0.112   |  0.717 ± 0.033   |  0.720 ± 0.028   |
-| ST (Seg + Cls) + PR             |   0.783 ± 0.027    |  0.715 ± 0.082     |   0.219 ± 0.282   |  0.678 ± 0.054   |  0.740 ± 0.025   |  0.665 ± 0.052   |  0.276 ± 0.271   |  0.647 ± 0.060   |  0.680 ± 0.043   |
-| ST (Seg + Cls) + PR + DO        |   0.747 ± 0.039    |  0.694 ± 0.067     |   0.766 ± 0.164   |  0.730 ± 0.034   |  0.758 ± 0.026   |  0.725 ± 0.031   |  0.756 ± 0.086   |  0.746 ± 0.021   |  0.747 ± 0.021   |
-| MT                              |   0.806 ± 0.041    |  0.722 ± 0.056     |   0.141 ± 0.281   |  0.681 ± 0.034   |  0.770 ± 0.033   |  0.747 ± 0.029   |  0.655 ± 0.025   |  0.745 ± 0.029   |  0.747 ± 0.028   |
-| MT + PR                         |   0.783 ± 0.038    |  0.721 ± 0.058     |   0.656 ± 0.108   |  0.742 ± 0.017   |  0.773 ± 0.034   |  0.747 ± 0.029   |  0.674 ± 0.055   |  0.750 ± 0.032   |  0.751 ± 0.031   |
-| MT + DO                         |   0.762 ± 0.054    |  0.696 ± 0.080     |   0.672 ± 0.180   |  0.725 ± 0.031   |  0.795 ± 0.045   |  0.752 ± 0.022   |  0.696 ± 0.095   |  0.765 ± 0.032   |  0.769 ± 0.034   |
-| **MT + PR + DO (Our proposal)** |   0.779 ± 0.046    |  0.717 ± 0.049     |   0.766 ± 0.103   |  0.754 ± 0.035   |  0.806 ± 0.005   |  0.751 ± 0.040   |  0.741 ± 0.109   |  0.777 ± 0.019   |  0.780 ± 0.017   |
+![table 5](./output/images/table_5.png)
+
 
 Key findings:
 
