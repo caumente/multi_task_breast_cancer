@@ -28,10 +28,9 @@ Identified 330 duplicated cases were removed to avoid bias training or testing p
 - 22 triplets (3 identical images each)
 - 122 duplets (2 identical images each)
 
-![triplet](./output/images/triplet.png)
 
 <p align="center">
-   <img src="https://github.com/caumente/multi_task_breast_cancer/blob/main/output/images/triplet.png" width="400">
+   <img src="https://github.com/caumente/multi_task_breast_cancer/blob/main/output/images/triplet.png" width="500">
 </p>
 
 Curated BUSI:
