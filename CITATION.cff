@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: If you use this software, please cite the paper using these metadata.
+authors:
+  - family-names: Aumente-Maestro
+    given-names: Carlos
+    orcid: https://orcid.org/0000-0002-3710-3308
+title: "A multi-task framework for breast cancer segmentation and classification in ultrasound imaging"
+repository-code: "https://github.com/caumente/multi_task_breast_cancer"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Aumente-Maestro"
+    given-names: "Carlos"
+    orcid: https://orcid.org/0000-0002-3710-3308
+  - family-names: "Díez"
+    given-names: "Jorge"
+    orcid: https://orcid.org/0000-0002-1314-2441
+  - family-names: "Remeseiro"
+    given-names: "Beatriz"
+    orcid: https://orcid.org/0000-0001-9265-253X
+  doi: "https://doi.org/10.1016/j.cmpb.2024.108540"
+  issn: ""
+  journal: "Computer Methods and Programs in Biomedicine"
+  pages: "108540"
+  title: "A multi-task framework for breast cancer segmentation and classification in ultrasound imaging"
+  url: "https://www.sciencedirect.com/science/article/pii/S0169260724005339"
+  year: 2024
