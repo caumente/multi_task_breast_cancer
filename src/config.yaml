@@ -1,0 +1,53 @@
+model: # model hyper-parameters
+  architecture: MTnnUNet
+  sequences: 1
+  width: 24
+  deep_supervision: True
+
+optimizer:
+  opt: Adam
+  lr: 0.0001
+  scheduler: plateau
+  patience: 20
+  min_lr: 1e-6
+  decrease_factor: 0.5
+  t_max: 40
+
+loss:
+  function:  DICE
+  inversely_weighted: True
+  classification_criterion: Focal
+
+training:
+  debug: False
+  seed: 1993
+  epochs: 200
+  max_patience: 50
+  CV: 4
+  cuda_benchmark: False
+  alpha: 0.35
+  threshold_postprocessing: 0
+  overlap_seg_based_on_class: True
+  overlap_class_based_on_seg: True
+
+data:
+  semantic_segmentation: False
+  input_img: Datasets/Dataset_BUSI_with_GT_postprocessed_128_uniques
+  batch_size: 2
+  train_size: 0.8
+  classes: [benign, malignant, normal]
+  classes_weighted: null
+  use_duplicated_to_train: False
+  remove_outliers: False
+  oversampling: True
+  augmentation:
+    CLAHE: False
+    SOBEL: False
+    brightness_brighter: False
+    brightness_darker: False
+    contrast_high: False
+    contrast_low: False
+  transforms:
+    horizontal_flip: .5
+    vertical_flip: .5
+    rotation: 1.0
