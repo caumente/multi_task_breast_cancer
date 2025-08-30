@@ -375,14 +375,3 @@ def load_datasets(config_training, config_data, transforms, mode='CV'):
                                      normalization=None,
                                      classes=config_data['classes'])
         return dataloader
-
-
-if __name__ == '__main__':
-    from time import perf_counter
-    tic = perf_counter()
-
-    # a, b, c = BUSI_dataloader(seed=1, batch_size=1, transforms=None)
-    a, b, c = BUSI_dataloader_CV(seed=1, batch_size=1, transforms=None)
-
-    toc = perf_counter()
-    print(toc-tic)

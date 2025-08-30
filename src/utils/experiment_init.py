@@ -9,14 +9,12 @@ from src.models.segmentation.ResidualUNet import ResidualUNet
 from src.models.segmentation.nnUNet import nnUNet2021
 from src.models.classification.BTS_UNET_classifier import BTSUNetClassifier
 from src.models.classification.UnetPlusPlus_Classifier import UNetPlusPlusClassifier
-from src.models.classification.UnetPlusPlus_Classifier_v2 import UNetPlusPlusClassifier_v2
 from src.models.classification.nnUNet_classifier import nnUNetClassifier
 from monai.networks.nets import EfficientNetBN
 from src.models.multitask.Multi_BTS_UNet import Multi_BTS_UNet
 from src.models.multitask.Multi_FSB_BTS_UNet import Multi_FSB_BTS_UNet
 from src.models.multitask.MTUNetPlusPlus import MTUNetPlusPlus
 from src.models.multitask.MTnnUNet import MTnnUNet
-from src.models.multitask.ExtendedSegResNet import ExtendedSegResNet
 from monai.networks.nets import UNet, AttentionUnet, BasicUnetPlusPlus
 from monai.losses import DiceLoss, DiceFocalLoss, GeneralizedDiceLoss, DiceCELoss, HausdorffDTLoss, FocalLoss
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR
@@ -108,13 +106,8 @@ def init_classification_model(
 
     if architecture == 'BTSUNetClassifier':
         model = BTSUNetClassifier(sequences=sequences, classes=n_classes, width=width)
-    elif architecture == 'EfficientNet':
-        model = EfficientNetBN("efficientnet-b0", pretrained=True, progress=True, spatial_dims=2,
-                               in_channels=sequences, num_classes=n_classes)
     elif architecture == 'UNetPlusPlusClassifier':
         model = UNetPlusPlusClassifier(spatial_dims=2, in_channels=sequences, n_classes=n_classes)
-    elif architecture == 'UNetPlusPlusClassifier_v2':
-        model = UNetPlusPlusClassifier_v2(spatial_dims=2, in_channels=sequences, n_classes=n_classes)
     elif architecture == 'nnUNetClassifier':
         model = nnUNetClassifier(sequences=sequences, n_classes=n_classes)
     else:
@@ -160,14 +153,10 @@ def init_multitask_model(
     logging.info(f"The model will be fed with {sequences} sequences")
     if architecture == 'Multi_BTSUNet':
         model = Multi_BTS_UNet(sequences=sequences, regions=regions, n_classes=n_classes, width=width, deep_supervision=deep_supervision)
-    elif architecture == 'Multi_FSB_BTS_UNet':
-        model = Multi_FSB_BTS_UNet(sequences=sequences, regions=regions, n_classes=n_classes, width=width, deep_supervision=deep_supervision)
     elif architecture == 'MTUNetPlusPlus':
         model = MTUNetPlusPlus(in_channels=sequences, out_channels=regions, n_classes=n_classes, deep_supervision=deep_supervision)
     elif architecture == "MTnnUNet":
         model = MTnnUNet(sequences=sequences, regions=regions, n_classes=n_classes)
-    elif architecture == 'ExtendedSegResNet':
-        model = ExtendedSegResNet(spatial_dims=2, init_filters=width, in_channels=sequences, out_channels=1, n_classes=n_classes, deep_supervision=False)
     else:
         model = torch.nn.Module()
         assert ("The model selected does not exist. Please, chose some of the following architectures: "

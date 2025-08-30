@@ -3,7 +3,6 @@ from __future__ import print_function, division
 import random
 
 import cv2
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import torch
@@ -184,56 +183,21 @@ def testing_apply_transformations(image, transforms_sequential):
     # This will store the transformations applied
     transforms_applied = {'horizontal_flip': False, 'vertical_flip': False, 'rotation': 0}
 
-    # plt.imshow(image[0, 0, :, :], cmap='gray')
-    # plt.show()
-    #
     # Random horizontal flips
     if random.random() < transforms_sequential.get('horizontal_flip') != .0:
         transforms_applied['horizontal_flip'] = True
         image = hflip(image)
-        # plt.imshow(image[0, 0, :, :], cmap='gray')
-        # plt.show()
+
     # Random vertical flips
     if random.random() < transforms_sequential.get('vertical_flip') != .0:
         transforms_applied['vertical_flip'] = True
         image = vflip(image)
-        # plt.imshow(image[0, 0, :, :], cmap='gray')
-        # plt.show()
+
     # Random rotations between 0-360 degrees
     if random.random() < transforms_sequential.get('rotation'):
         # angle = random.randint(0, 360)
         angle = int(np.random.choice(range(0, 360)))
         transforms_applied['rotation'] = angle
         image = rotate(image, angle)
-        # image = rotate(image, angle, fill=0)
-        # plt.imshow(image[0, 0, :, :], cmap='gray')
-        # plt.show()
 
     return image, transforms_applied
-
-
-if __name__ == '__main__':
-    import torchvision
-    transforms_sequencial = torch.nn.Sequential(
-        # transforms.RandomCrop(128, pad_if_needed=True),
-        torchvision.transforms.RandomHorizontalFlip(p=1),
-        torchvision.transforms.RandomVerticalFlip(p=1),
-        # transforms.RandomRotation(degrees=random.choice([30, 60, 90, 120]))
-        # torchvision.transforms.RandomRotation(degrees=np.random.choice(range(0, 360))),
-        # transforms.GaussianBlur(kernel_size=(5, 5), sigma=(1.5, 1.5))
-
-    )
-
-    img = cv2.imread("./../../Datasets/Dataset_BUSI_with_GT_postprocessed_128/images/malignant_id_30.png", 0)
-    img = torch.unsqueeze(torch.unsqueeze(torch.as_tensor(img, dtype=torch.float32), 0), 0)
-    plt.imshow(img[0, 0, :, :], cmap='gray')
-    plt.show()
-
-    img_1 = transforms_sequencial(img)
-    plt.imshow(img_1[0, 0, :, :], cmap='gray')
-    plt.show()
-
-    transforms = {'horizontal_flip': 1, 'vertical_flip': 1, 'rotation': 0}
-    img_2, transforms_applied = testing_apply_transformations(img, transforms)
-    plt.imshow(img_2[0, 0, :, :], cmap='gray')
-    plt.show()

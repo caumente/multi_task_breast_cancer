@@ -46,7 +46,7 @@ venv.bak/
 
 # folders
 /runs
-/Datasets
+/data
 /notebooks
 /papers
 
