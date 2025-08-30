@@ -169,7 +169,7 @@ def main():
     df_mapping = add_image_metadata(df_mapping)
     df_mapping.to_csv(str(output_path / "mapping.csv"), index=False)
 
-    # Resumen final
+    # Summary
     total_images = len(df_mapping)
     print(f"[INFO] Preprocessing completed. Processed dataset saved at {output_path}")
     print(f"[INFO] Total images processed: {total_images}")
