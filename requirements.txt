@@ -9,3 +9,4 @@ torchvision==0.15.2
 PyYAML==6.0.2
 matplotlib==3.6.2
 seaborn==0.12.2
+openpyxl==3.0.9
