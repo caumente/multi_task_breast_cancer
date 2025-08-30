@@ -89,8 +89,6 @@ Qualitative results are displayed below:
 
 ![Example Image](./output/images/qualitative_results_segmentation.png)
 
-
-
 ## Conclusions
 
 We can conclude that our novel multi-task learning framework for breast cancer segmentation and classification in 
@@ -108,3 +106,37 @@ single-task approaches.
 
 
 
+## Quick Start / Usage
+
+Follow these steps to quickly run the code and reproduce the results using the Curated BUSI dataset:
+
+```bash
+# Clone the repository
+git clone https://github.com/caumente/multi_task_breast_cancer
+cd multi_task_breast_cancer
+
+# Create and activate the environment
+conda create -n mt_breast python=3.9
+conda activate mt_breast
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+Download the BUSI Breast Ultrasound Images dataset. Since BUSI is originally organized into benign, malignant, and normal images, preprocessing is required.
+
+Preprocessing is necessary to handle multiple segmentation masks and clean the dataset.
+We provide a curated version called Curated BUSI. You can enable it by setting CURATED = True in src/dataset/Curated_BUSI_preprocessing.py.
+
+```bash
+python -m src.dataset.Curated_BUSI_preprocessing
+```
+
+Edit src/config.yaml to set the correct dataset paths and select the training task (e.g., multi-task learning).
+
+```bash
+#Run the training
+python -m src.training_multitask
+```
+
+This quick start guide ensures that you can preprocess the dataset and train the multi-task model with minimal setup.
